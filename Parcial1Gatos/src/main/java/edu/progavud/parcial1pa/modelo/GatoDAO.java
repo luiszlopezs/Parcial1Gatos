@@ -31,7 +31,7 @@ public class GatoDAO {
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
-        String insercion = "INSERT INTO GatosTabla VALUES(" + gatoVO.getId() + ",'" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
+        String insercion = "INSERT INTO GatosTabla VALUES('" + gatoVO.getId() + "','" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
         st.executeUpdate(insercion);
         st.close();
         ConexionBD.desconectar();
@@ -47,7 +47,7 @@ public class GatoDAO {
         rs = st.executeQuery(consulta);
         while (rs.next()) {
             GatoVO gato = new GatoVO();
-            gato.setId(rs.getInt("id"));
+            gato.setId(rs.getString("id"));
             gato.setCodigoEMS(rs.getString("codigoEMS"));
             gato.setRazaString(rs.getString("razaString"));
             
@@ -63,9 +63,9 @@ public class GatoDAO {
 
     }
 
-    public boolean eliminarGato(int id) throws SQLException {
+    public boolean eliminarGato(String id) throws SQLException {
 
-        String consulta = "DELETE FROM GatosTabla WHERE id=" + id + "";
+        String consulta = "DELETE FROM GatosTabla WHERE id='" + id + "'";
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
@@ -100,7 +100,7 @@ public class GatoDAO {
         rs = st.executeQuery(consulta);
         while (rs.next()) {
             GatoVO gato = new GatoVO();
-            gato.setId(rs.getInt("id"));
+            gato.setId(rs.getString("id"));
             gato.setCodigoEMS(rs.getString("codigoEMS"));
             gato.setRazaString(rs.getString("razaString"));
             
@@ -124,7 +124,7 @@ public class GatoDAO {
             rs = st.executeQuery(consulta);
             if (rs.next()) {
                 gatoVO = new GatoVO();
-                gatoVO.setId(rs.getInt("id"));
+                gatoVO.setId(rs.getString("id"));
                 gatoVO.setRazaString(rs.getString("razaString"));
                 gatoVO.setNombre(rs.getString("nombre"));
                 gatoVO.setDescripcion(rs.getString("descripcion"));
