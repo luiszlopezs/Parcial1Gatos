@@ -15,7 +15,7 @@ public class GatoVO {
     private String codigoEMS;
     private String nombre;
     private String descripcion;
-    private String razaString = "";
+
 
     public GatoVO(Raza raza, String id, String codigoEMS, String nombre, String descripcion) {
         this.raza = raza;
@@ -27,16 +27,10 @@ public class GatoVO {
     }
 
     public GatoVO() {
+        this.raza = new Raza("", "", "", "", "");
     }
 
-    public String obtenerRazaString() {
-        razaString = razaString.concat(raza.getNombreRaza() + "-");
-        razaString = razaString.concat(raza.getColorPelaje() + "-");
-        razaString = razaString.concat(raza.getPatron() + "-");
-        razaString = razaString.concat(raza.getColorOjos() + "-");
-        razaString = razaString.concat(raza.getCola());
-        return razaString;
-    }
+
 
     public Raza getRaza() {
         return raza;
@@ -80,14 +74,9 @@ public class GatoVO {
 
     
 
-    public String getRazaString() {
-        return razaString;
-    }
-
-    public void setRazaString(String razaString) {
-        this.razaString = razaString;
-    }
+  
     
     
 
 }
+
