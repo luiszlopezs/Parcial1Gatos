@@ -4,6 +4,7 @@
  */
 package edu.progavud.parcial1pa.modelo;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

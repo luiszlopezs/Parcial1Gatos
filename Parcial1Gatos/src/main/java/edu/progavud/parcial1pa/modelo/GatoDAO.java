@@ -4,6 +4,7 @@
  */
 package edu.progavud.parcial1pa.modelo;
 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +32,7 @@ public class GatoDAO {
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
-        String insercion = "INSERT INTO GatosTabla VALUES('" + gatoVO.getId() + "','" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
+        String insercion = "INSERT INTO GatosTabla VALUES('" + gatoVO.getId() + "','" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRaza().getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
         st.executeUpdate(insercion);
         st.close();
         ConexionBD.desconectar();
@@ -49,11 +50,11 @@ public class GatoDAO {
             GatoVO gato = new GatoVO();
             gato.setId(rs.getString("id"));
             gato.setCodigoEMS(rs.getString("codigoEMS"));
-            gato.setRazaString(rs.getString("razaString"));
-            
+            gato.getRaza().setRazaString(rs.getString("razaString"));
+
             gato.setNombre(rs.getString("nombre"));
             gato.setDescripcion(rs.getString("descripcion"));
-            
+
             misGatos.add(gato);
         }
         st.close();
@@ -79,20 +80,24 @@ public class GatoDAO {
     public boolean modificarGato(GatoVO gatoVO) throws SQLException {
 
         //Update estudiantes set nombre='Maria Perez' where codigo=202210200031
-        String consulta = "UPDATE GatosTabla SET codigoEMS=" + gatoVO.getCodigoEMS() + "SET razaString=" + gatoVO.getRazaString() +"SET nombre="+ gatoVO.getNombre() +"SET descripcion="+gatoVO.getDescripcion()+"WHERE id=" + gatoVO.getId() + "";
-        
-            con = ConexionBD.getConexion();
-            st = con.createStatement();
-            st.executeUpdate(consulta);
-            st.close();
-            ConexionBD.desconectar();
-            return true;
-    
+        String consulta = "UPDATE GatosTabla SET "
+                + "codigoEMS='" + gatoVO.getCodigoEMS() + "', "
+                + "razaString='" + gatoVO.getRaza().getRazaString() + "', "
+                + "nombre='" + gatoVO.getNombre() + "', "
+                + "descripcion='" + gatoVO.getDescripcion() + "' "
+                + "WHERE id='" + gatoVO.getId() + "'";
+
+        con = ConexionBD.getConexion();
+        st = con.createStatement();
+        st.executeUpdate(consulta);
+        st.close();
+        ConexionBD.desconectar();
+        return true;
 
     }
 
-    public ArrayList<GatoVO> consultarGatos(String filtro) throws SQLException{
-        ArrayList<GatoVO> misGatosConsultados= new ArrayList<GatoVO>();
+    public ArrayList<GatoVO> consultarGatos(String filtro) throws SQLException {
+        ArrayList<GatoVO> misGatosConsultados = new ArrayList<GatoVO>();
         String consulta = "SELECT * FROM GatosTabla WHERE razaString LIKE '%" + filtro + "%' OR codigoEMS LIKE '%" + filtro + "%'";
 
         con = ConexionBD.getConexion();
@@ -102,11 +107,11 @@ public class GatoDAO {
             GatoVO gato = new GatoVO();
             gato.setId(rs.getString("id"));
             gato.setCodigoEMS(rs.getString("codigoEMS"));
-            gato.setRazaString(rs.getString("razaString"));
-            
+            gato.getRaza().setRazaString(rs.getString("razaString"));
+
             gato.setNombre(rs.getString("nombre"));
             gato.setDescripcion(rs.getString("descripcion"));
-            
+
             misGatosConsultados.add(gato);
         }
         st.close();
@@ -115,25 +120,24 @@ public class GatoDAO {
         return misGatosConsultados;
     }
 
-    public GatoVO consultarGatoAEliminar(String id) throws SQLException {
+    public GatoVO consultarGatoIndividual(String id) throws SQLException {
         GatoVO gatoVO = null;
-        String consulta = "SELECT * FROM GatosTabla WHERE id='" + id+"'";
-     
-            con = (Connection) ConexionBD.getConexion();
-            st = con.createStatement();
-            rs = st.executeQuery(consulta);
-            if (rs.next()) {
-                gatoVO = new GatoVO();
-                gatoVO.setId(rs.getString("id"));
-                gatoVO.setRazaString(rs.getString("razaString"));
-                gatoVO.setNombre(rs.getString("nombre"));
-                gatoVO.setDescripcion(rs.getString("descripcion"));
-            }
-            st.close();
-            ConexionBD.desconectar();
-    
+        String consulta = "SELECT * FROM GatosTabla WHERE id='" + id + "'";
+
+        con = (Connection) ConexionBD.getConexion();
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        if (rs.next()) {
+            gatoVO = new GatoVO();
+            gatoVO.setId(rs.getString("id"));
+            gatoVO.getRaza().setRazaString(rs.getString("razaString"));
+            gatoVO.setNombre(rs.getString("nombre"));
+            gatoVO.setDescripcion(rs.getString("descripcion"));
+        }
+        st.close();
+        ConexionBD.desconectar();
+
         return gatoVO;
     }
-
 
 }
