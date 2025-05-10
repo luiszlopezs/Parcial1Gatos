@@ -31,40 +31,88 @@ public class GatoDAO {
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
-        String insercion = "INSERT INTO Estudiantes VALUES('" + gatoVO.getId() + "','" + gatoVO.getRazaString() + "'," + gatoVO.getCodigoEMS() + ")";
+        String insercion = "INSERT INTO GatosTabla VALUES(" + gatoVO.getId() + ",'" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
         st.executeUpdate(insercion);
         st.close();
         ConexionBD.desconectar();
 
     }
 
-    public ArrayList<GatoVO> listaDeGatos() {
+    public ArrayList<GatoVO> listaDeGatos() throws SQLException {
         ArrayList<GatoVO> misGatos = new ArrayList<GatoVO>();
         String consulta = "SELECT * FROM GatosTabla";
-        try {
-            con = ConexionBD.getConexion();
-            st = con.createStatement();
-            rs = st.executeQuery(consulta);
-            while (rs.next()) {
-                GatoVO gato = new GatoVO();
-                gato.setId(rs.getInt("id"));
-                gato.setRazaString(rs.getString("Raza String"));
-                gato.setCodigoEMS(rs.getString("Codigo EMS"));
-                misGatos.add(gato);
-            }
-            st.close();
-            ConexionBD.desconectar();
-        } catch (SQLException ex) {
-            System.out.println("No se pudo realizar la consulta");
+
+        con = ConexionBD.getConexion();
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        while (rs.next()) {
+            GatoVO gato = new GatoVO();
+            gato.setId(rs.getInt("id"));
+            gato.setCodigoEMS(rs.getString("codigoEMS"));
+            gato.setRazaString(rs.getString("razaString"));
+            
+            gato.setNombre(rs.getString("nombre"));
+            gato.setDescripcion(rs.getString("descripcion"));
+            
+            misGatos.add(gato);
         }
+        st.close();
+        ConexionBD.desconectar();
+
         return misGatos;
 
     }
 
-    public boolean eliminarGato(int id);
+    public boolean eliminarGato(int id) throws SQLException {
 
-    public boolean modificarGato(Gato gato);
+        String consulta = "DELETE FROM GatosTabla WHERE id=" + id + "";
 
-    public ArrayList<GatoVo> consultarGatos(String string);
+        con = ConexionBD.getConexion();
+        st = con.createStatement();
+        st.executeUpdate(consulta);
+        st.close();
+        ConexionBD.desconectar();
+        return true;
+
+    }
+
+    public boolean modificarGato(GatoVO gatoVO) throws SQLException {
+
+        //Update estudiantes set nombre='Maria Perez' where codigo=202210200031
+        String consulta = "UPDATE GatosTabla SET codigoEMS=" + gatoVO.getCodigoEMS() + "SET razaString=" + gatoVO.getRazaString() +"SET nombre="+ gatoVO.getNombre() +"SET descripcion="+gatoVO.getDescripcion()+"WHERE id=" + gatoVO.getId() + "";
+        
+            con = ConexionBD.getConexion();
+            st = con.createStatement();
+            st.executeUpdate(consulta);
+            st.close();
+            ConexionBD.desconectar();
+            return true;
+    
+
+    }
+
+    public ArrayList<GatoVO> consultarGatos(String filtro) throws SQLException{
+        ArrayList<GatoVO> misGatosConsultados= new ArrayList<GatoVO>();
+        String consulta = "SELECT * FROM GatosTabla WHERE razaString LIKE '%" + filtro + "%' OR codigoEMS LIKE '%" + filtro + "%'";
+
+        con = ConexionBD.getConexion();
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        while (rs.next()) {
+            GatoVO gato = new GatoVO();
+            gato.setId(rs.getInt("id"));
+            gato.setCodigoEMS(rs.getString("codigoEMS"));
+            gato.setRazaString(rs.getString("razaString"));
+            
+            gato.setNombre(rs.getString("nombre"));
+            gato.setDescripcion(rs.getString("descripcion"));
+            
+            misGatosConsultados.add(gato);
+        }
+        st.close();
+        ConexionBD.desconectar();
+
+        return misGatosConsultados;
+    }
 
 }
