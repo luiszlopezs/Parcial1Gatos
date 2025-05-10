@@ -6,10 +6,10 @@ package edu.progavud.parcial1pa.control;
 
 import java.util.ArrayList;
 import edu.progavud.parcial1pa.modelo.*;
+import edu.progavud.parcial1pa.modelo.GatoDAO;
+import edu.progavud.parcial1pa.modelo.GatoVO;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -18,32 +18,27 @@ import java.util.logging.Logger;
 public class ControlGatos {
 
     private GatoDAO gatoDAO;
-    private GatoVO gato;
+//    private GatoVO gatoVO;
 
-    public ControlGatos(List gatos) {
-        registrarGato();
-        obtenerRegistros();
-        buscarGato();
+    public ControlGatos() {
+
+//        obtenerRegistros();
+//        buscarGato();
     }
 
-    public void registrarGato() throws SQLException {
+    public void insertarGato(String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) throws SQLException {
         gatoDAO = new GatoDAO();
 
         GatoVO gatoVO = new GatoVO();
-        gatoVO.setId("202210200032");
-        gatoVO.setCodigoEMS("EMS");
-        gatoVO.setRazaString("raza");
-        gatoVO.setNombre("nombre");
-        gatoVO.setDescripcion("descripcion");
+        gatoVO.setCodigoEMS(codEMS);
+        gatoVO.getRaza().setTodaRaza(nombreRaza, colorPelaje, patron, colorOjos, cola);
+        gatoVO.setNombre(nombre);
+        gatoVO.setDescripcion(descripcion);
         gatoDAO.insertarGato(gatoVO);
 
     }
-    
-    public void asignarRaza(String nombreRaza, String colorPelaje,String Patron, String ColorOjos, String Cola){
-        
-    }
 
-    private void obtenerRegistros() throws SQLException {
+    public void obtenerTodosLosGatos() throws SQLException {
         gatoDAO = new GatoDAO();
         GatoVO gatoVO;
         ArrayList<GatoVO> listaGatos = gatoDAO.listaDeGatos();
@@ -52,44 +47,44 @@ public class ControlGatos {
             for (int i = 0; i < listaGatos.size(); i++) {
                 numeroGato++;
                 gatoVO = listaGatos.get(i);
-                System.out.println("****************Estudiante No. " + numeroGato + "**********");
-                System.out.println("Codigo Estudiante: " + gatoVO.getRaza());
-                System.out.println("Nombre Estudiante: " + gatoVO.getCodigoEMS());
-                System.out.println("Edad Estudiante: " + gatoVO.getNombre());
+                System.out.println("****************Gato No. " + numeroGato + "**********");
+                System.out.println("Raza: " + gatoVO.getRaza());
+                System.out.println("Codigo EMS : " + gatoVO.getCodigoEMS());
+                System.out.println("Nombre : " + gatoVO.getNombre());
                 System.out.println("*************************************************\n");
             }
         } else {
-            System.out.println("Actualmente no existen registros de estudiantes");
+            System.out.println("Actualmente no existen registros de gatos");
         }
     }
 
-    private void buscarGato() throws SQLException{
+    public void consultarGatos(String filtro) throws SQLException { //Se puede consultar por EMS, raza
         gatoDAO = new GatoDAO();
-        String codigo = "202210200030";
-        for (GatoVO gatoVO : gatoDAO.consultarGatos(codigo)) {
+        
+        for (GatoVO gatoVO : gatoDAO.consultarGatos(filtro)) {
             if (gatoVO != null) {
-                System.out.println("**************** Estudiante Consultado *************************");
-                System.out.println("Codigo Estudiante: " + gatoVO.getRaza());
-                System.out.println("Nombre Estudiante: " + gatoVO.getCodigoEMS());
-                System.out.println("Edad Estudiante : " + gatoVO.getNombre());
+                System.out.println("**************** Gato Consultado *************************");
+                System.out.println("raza: " + gatoVO.getRaza());
+                System.out.println("Codigo EMS: " + gatoVO.getCodigoEMS());
+                System.out.println("Nombre gato : " + gatoVO.getNombre());
                 System.out.println("*************************************************\n");
 
             } else {
-                System.out.println("No existen un estudiante con ese codigo");
+                System.out.println("No existen un gato con ese codigo");
             }
         }
     }
 
-    private void eliminarGato(GatoVO gatoVO) throws SQLException {
-       
-        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId());
+    public void eliminarGato(String id) throws SQLException {
+
+        GatoVO gatoEncontrado = gatoDAO.consultarGatoIndividual(id);
         if (gatoEncontrado != null) {
             System.out.println("************Mascota a Eliminar****************");
             System.out.println("Id Mascota: " + gatoEncontrado.getRaza());
             System.out.println("Nombre Mascota: " + gatoEncontrado.getCodigoEMS());
             System.out.println("Edad Mascota: " + gatoEncontrado.getNombre());
             System.out.println("********************************************\n");
-            if (gatoDAO.eliminarGato(gatoVO.getId())) {
+            if (gatoDAO.eliminarGato(id)) {
                 System.out.println("Estudiante Eliminado");
             } else {
                 System.out.println("No se pudo eliminar el estudiante");
@@ -99,21 +94,29 @@ public class ControlGatos {
         }
     }
 
-    private void modificarGato(GatoVO gatoVO) throws SQLException {
-        
-        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId());
-        if (gatoEncontrado != null) {
-            System.out.println("****************Estudiante a Modificar****************");
-            System.out.println("Codigo Estudiante: " + gatoEncontrado.getRazaString());
-            System.out.println("Nombre Estudiante: " + gatoEncontrado.getCodigoEMS());
-            System.out.println("Edad Estudiante: " + gatoEncontrado.getNombre());
-            System.out.println("*************************************************\n");
+    public void modificarGato(String id, String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) throws SQLException {
 
-            if (gatoDAO.modificarGato(gatoVO)) {
+        GatoVO gatoEncontrado = gatoDAO.consultarGatoIndividual(id);
+        if (gatoEncontrado != null) {
+
+            
+
+            System.out.println("****************Estudiante a Modificar****************");
+            System.out.println("raza gato: " + gatoEncontrado.getRaza().getRazaString());
+            System.out.println("codigo EMS: " + gatoEncontrado.getCodigoEMS());
+            System.out.println("Nombre gato: " + gatoEncontrado.getNombre());
+            System.out.println("*************************************************\n");
+            
+            gatoEncontrado.setCodigoEMS(codEMS);
+            gatoEncontrado.getRaza().setTodaRaza(nombreRaza, colorPelaje, patron, colorOjos, cola);
+            gatoEncontrado.setNombre(nombre);
+            gatoEncontrado.setDescripcion(descripcion);
+
+            if (gatoDAO.modificarGato(gatoEncontrado)) {
                 System.out.println("Estudiante Modificado");
-                gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId()); //Cambiar nombre a consultarGatoIndividual
+                gatoEncontrado = gatoDAO.consultarGatoIndividual(id);
                 System.out.println("****************Estudiante Modificado****************");
-                System.out.println("Codigo Estudiante: " + gatoEncontrado.getRazaString());
+                System.out.println("Codigo Estudiante: " + gatoEncontrado.getRaza().getRazaString());
                 System.out.println("Nombre Estudiante: " + gatoEncontrado.getCodigoEMS());
                 System.out.println("Edad Estudiante: " + gatoEncontrado.getNombre());
                 System.out.println("*************************************************\n");
