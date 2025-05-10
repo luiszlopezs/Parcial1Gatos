@@ -26,19 +26,24 @@ public class ControlGatos {
         buscarGato();
     }
 
-    public void registrarGato(List<GatoVO> gatos) {
+    public void registrarGato() throws SQLException {
         gatoDAO = new GatoDAO();
 
-        for (GatoVO gato : gatos) {
-            try {
-                gatoDAO.insertarGato(gato);
-            } catch (SQLException ex) {
-                Logger.getLogger(ControlGatos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        GatoVO gatoVO = new GatoVO();
+        gatoVO.setId("202210200032");
+        gatoVO.setCodigoEMS("EMS");
+        gatoVO.setRazaString("raza");
+        gatoVO.setNombre("nombre");
+        gatoVO.setDescripcion("descripcion");
+        gatoDAO.insertarGato(gatoVO);
+
+    }
+    
+    public void asignarRaza(String nombreRaza, String colorPelaje,String Patron, String ColorOjos, String Cola){
+        
     }
 
-    private void obtenerRegistros() {
+    private void obtenerRegistros() throws SQLException {
         gatoDAO = new GatoDAO();
         GatoVO gatoVO;
         ArrayList<GatoVO> listaGatos = gatoDAO.listaDeGatos();
@@ -75,16 +80,16 @@ public class ControlGatos {
         }
     }
 
-    private void eliminarGato() {
-        String codigo = "202210200033";
-        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(codigo);
+    private void eliminarGato(GatoVO gatoVO) throws SQLException {
+       
+        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId());
         if (gatoEncontrado != null) {
             System.out.println("************Mascota a Eliminar****************");
             System.out.println("Id Mascota: " + gatoEncontrado.getRaza());
             System.out.println("Nombre Mascota: " + gatoEncontrado.getCodigoEMS());
             System.out.println("Edad Mascota: " + gatoEncontrado.getNombre());
             System.out.println("********************************************\n");
-            if (gatoDAO.eliminarGato(codigo)) {
+            if (gatoDAO.eliminarGato(gatoVO.getId())) {
                 System.out.println("Estudiante Eliminado");
             } else {
                 System.out.println("No se pudo eliminar el estudiante");
@@ -94,21 +99,21 @@ public class ControlGatos {
         }
     }
 
-    private void modificarEstudiante() {
-        int codigo = "202210200031";
-        GatoVO gatoEncontrado = gatoDAO.consultarGato(codigo);
+    private void modificarGato(GatoVO gatoVO) throws SQLException {
+        
+        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId());
         if (gatoEncontrado != null) {
             System.out.println("****************Estudiante a Modificar****************");
-            System.out.println("Codigo Estudiante: " + gatoEncontrado.getRaza());
+            System.out.println("Codigo Estudiante: " + gatoEncontrado.getRazaString());
             System.out.println("Nombre Estudiante: " + gatoEncontrado.getCodigoEMS());
-            System.out.println("Edad Estudiante: " + gatoEncontrado.getOjos());
+            System.out.println("Edad Estudiante: " + gatoEncontrado.getNombre());
             System.out.println("*************************************************\n");
 
-            if (gatoDAO.modificarGato(codigo)) {
+            if (gatoDAO.modificarGato(gatoVO)) {
                 System.out.println("Estudiante Modificado");
-                gatoEncontrado = gatoDAO.consultarGatos(codigo);
+                gatoEncontrado = gatoDAO.consultarGatoAEliminar(gatoVO.getId()); //Cambiar nombre a consultarGatoIndividual
                 System.out.println("****************Estudiante Modificado****************");
-                System.out.println("Codigo Estudiante: " + gatoEncontrado.getRaza());
+                System.out.println("Codigo Estudiante: " + gatoEncontrado.getRazaString());
                 System.out.println("Nombre Estudiante: " + gatoEncontrado.getCodigoEMS());
                 System.out.println("Edad Estudiante: " + gatoEncontrado.getNombre());
                 System.out.println("*************************************************\n");
