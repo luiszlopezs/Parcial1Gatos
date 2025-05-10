@@ -77,12 +77,12 @@ public class ControlGatos {
 
     private void eliminarGato() {
         String codigo = "202210200033";
-        GatoVO gatoEncontrado = gatoDAO.consultarGatos(codigo);
+        GatoVO gatoEncontrado = gatoDAO.consultarGatoAEliminar(codigo);
         if (gatoEncontrado != null) {
             System.out.println("************Mascota a Eliminar****************");
             System.out.println("Id Mascota: " + gatoEncontrado.getRaza());
             System.out.println("Nombre Mascota: " + gatoEncontrado.getCodigoEMS());
-            System.out.println("Edad Mascota: " + gatoEncontrado.getOjos());
+            System.out.println("Edad Mascota: " + gatoEncontrado.getNombre());
             System.out.println("********************************************\n");
             if (gatoDAO.eliminarGato(codigo)) {
                 System.out.println("Estudiante Eliminado");
@@ -95,7 +95,7 @@ public class ControlGatos {
     }
 
     private void modificarEstudiante() {
-        String codigo = "202210200031";
+        int codigo = "202210200031";
         GatoVO gatoEncontrado = gatoDAO.consultarGato(codigo);
         if (gatoEncontrado != null) {
             System.out.println("****************Estudiante a Modificar****************");
@@ -106,7 +106,7 @@ public class ControlGatos {
 
             if (gatoDAO.modificarGato(codigo)) {
                 System.out.println("Estudiante Modificado");
-                gatoEncontrado = gatoDAO.consultarGato(codigo);
+                gatoEncontrado = gatoDAO.consultarGatos(codigo);
                 System.out.println("****************Estudiante Modificado****************");
                 System.out.println("Codigo Estudiante: " + gatoEncontrado.getRaza());
                 System.out.println("Nombre Estudiante: " + gatoEncontrado.getCodigoEMS());
