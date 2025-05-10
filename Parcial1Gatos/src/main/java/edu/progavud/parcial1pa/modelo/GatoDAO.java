@@ -115,4 +115,25 @@ public class GatoDAO {
         return misGatosConsultados;
     }
 
+    public GatoVO consultarGatoAEliminar(String id) throws SQLException {
+        GatoVO gatoVO = null;
+        String consulta = "SELECT * FROM GatosTabla WHERE id='" + id+"'";
+     
+            con = (Connection) ConexionBD.getConexion();
+            st = con.createStatement();
+            rs = st.executeQuery(consulta);
+            if (rs.next()) {
+                gatoVO = new GatoVO();
+                gatoVO.setId(rs.getInt("id"));
+                gatoVO.setRazaString(rs.getString("razaString"));
+                gatoVO.setNombre(rs.getString("nombre"));
+                gatoVO.setDescripcion(rs.getString("descripcion"));
+            }
+            st.close();
+            ConexionBD.desconectar();
+    
+        return gatoVO;
+    }
+
+
 }
