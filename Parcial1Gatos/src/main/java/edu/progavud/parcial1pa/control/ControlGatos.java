@@ -10,6 +10,8 @@ import edu.progavud.parcial1pa.modelo.GatoDAO;
 import edu.progavud.parcial1pa.modelo.GatoVO;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,9 +20,11 @@ import java.util.List;
 public class ControlGatos {
 
     private GatoDAO gatoDAO;
+    private ControlPrincipal cPrinc;
 //    private GatoVO gatoVO;
 
-    public ControlGatos() {
+    public ControlGatos(ControlPrincipal cPrinc) {
+        this.cPrinc = cPrinc;
 
 //        obtenerRegistros();
 //        buscarGato();
@@ -38,10 +42,15 @@ public class ControlGatos {
 
     }
 
-    public void obtenerTodosLosGatos() throws SQLException {
+    public void obtenerTodosLosGatos() {
         gatoDAO = new GatoDAO();
         GatoVO gatoVO;
-        ArrayList<GatoVO> listaGatos = gatoDAO.listaDeGatos();
+        ArrayList<GatoVO> listaGatos;
+        try {
+            listaGatos = gatoDAO.listaDeGatos();
+        } catch (SQLException ex) {
+            Logger.getLogger(ControlGatos.class.getName()).log(Level.SEVERE, null, ex);
+        }
         if (!listaGatos.isEmpty()) {
             int numeroGato = 0;
             for (int i = 0; i < listaGatos.size(); i++) {
@@ -75,7 +84,7 @@ public class ControlGatos {
         }
     }
 
-    public void eliminarGato(String id) throws SQLException {
+    public void eliminarGato(String id){
 
         GatoVO gatoEncontrado = gatoDAO.consultarGatoIndividual(id);
         if (gatoEncontrado != null) {
@@ -94,7 +103,7 @@ public class ControlGatos {
         }
     }
 
-    public void modificarGato(String id, String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) throws SQLException {
+    public void modificarGato(String id, String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) {
 
         GatoVO gatoEncontrado = gatoDAO.consultarGatoIndividual(id);
         if (gatoEncontrado != null) {

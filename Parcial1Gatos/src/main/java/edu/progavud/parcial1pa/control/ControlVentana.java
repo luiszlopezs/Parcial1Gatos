@@ -9,5 +9,10 @@ package edu.progavud.parcial1pa.control;
  * @author sangr
  */
 public class ControlVentana {
+    private ControlPrincipal cPrinc;
+
+    public ControlVentana(ControlPrincipal cPrinc) {
+        this.cPrinc = cPrinc;
+    }
     
 }
