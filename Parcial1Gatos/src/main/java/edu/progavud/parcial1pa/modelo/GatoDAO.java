@@ -32,7 +32,7 @@ public class GatoDAO {
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
-        String insercion = "INSERT INTO GatosTabla VALUES('" + gatoVO.getId() + "','" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRaza().getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
+        String insercion = "INSERT INTO GatosTabla VALUES(" + Integer.valueOf(gatoVO.getId()) + ",'" + gatoVO.getCodigoEMS() + "','" + gatoVO.getRaza().getRazaString() + "','" + gatoVO.getNombre() + "','" + gatoVO.getDescripcion() + "')";
         st.executeUpdate(insercion);
         st.close();
         ConexionBD.desconectar();
@@ -64,9 +64,9 @@ public class GatoDAO {
 
     }
 
-    public boolean eliminarGato(String id) throws SQLException {
+    public boolean eliminarGato(int id) throws SQLException {
 
-        String consulta = "DELETE FROM GatosTabla WHERE id='" + id + "'";
+        String consulta = "DELETE FROM GatosTabla WHERE id=" + id + "";
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
@@ -85,7 +85,7 @@ public class GatoDAO {
                 + "razaString='" + gatoVO.getRaza().getRazaString() + "', "
                 + "nombre='" + gatoVO.getNombre() + "', "
                 + "descripcion='" + gatoVO.getDescripcion() + "' "
-                + "WHERE id='" + gatoVO.getId() + "'";
+                + "WHERE id=" + Integer.valueOf(gatoVO.getId()) + "";
 
         con = ConexionBD.getConexion();
         st = con.createStatement();
@@ -120,9 +120,9 @@ public class GatoDAO {
         return misGatosConsultados;
     }
 
-    public GatoVO consultarGatoIndividual(String id) throws SQLException {
+    public GatoVO consultarGatoIndividual(int id) throws SQLException {
         GatoVO gatoVO = null;
-        String consulta = "SELECT * FROM GatosTabla WHERE id='" + id + "'";
+        String consulta = "SELECT * FROM GatosTabla WHERE id=" + id + "";
 
         con = (Connection) ConexionBD.getConexion();
         st = con.createStatement();
