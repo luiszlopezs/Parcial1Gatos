@@ -26,11 +26,10 @@ public class ControlGatos {
 //        buscarGato();
     }
 
-    public void insertarGato(String id, String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) throws SQLException {
+    public void insertarGato(String codEMS, String nombreRaza, String colorPelaje, String patron, String colorOjos, String cola, String nombre, String descripcion) throws SQLException {
         gatoDAO = new GatoDAO();
 
         GatoVO gatoVO = new GatoVO();
-        gatoVO.setId(id);
         gatoVO.setCodigoEMS(codEMS);
         gatoVO.getRaza().setTodaRaza(nombreRaza, colorPelaje, patron, colorOjos, cola);
         gatoVO.setNombre(nombre);
@@ -59,10 +58,10 @@ public class ControlGatos {
         }
     }
 
-    public void consultarGatos(String id) throws SQLException {
+    public void consultarGatos(String filtro) throws SQLException { //Se puede consultar por EMS, raza
         gatoDAO = new GatoDAO();
         
-        for (GatoVO gatoVO : gatoDAO.consultarGatos(id)) {
+        for (GatoVO gatoVO : gatoDAO.consultarGatos(filtro)) {
             if (gatoVO != null) {
                 System.out.println("**************** Gato Consultado *************************");
                 System.out.println("raza: " + gatoVO.getRaza());
@@ -108,7 +107,6 @@ public class ControlGatos {
             System.out.println("Nombre gato: " + gatoEncontrado.getNombre());
             System.out.println("*************************************************\n");
             
-            gatoEncontrado.setId(id);
             gatoEncontrado.setCodigoEMS(codEMS);
             gatoEncontrado.getRaza().setTodaRaza(nombreRaza, colorPelaje, patron, colorOjos, cola);
             gatoEncontrado.setNombre(nombre);
