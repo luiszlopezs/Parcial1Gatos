@@ -11,13 +11,13 @@ package edu.progavud.parcial1pa.modelo;
 public class GatoVO {
 
     private Raza raza;
-    private int id;
+    private String id;
     private String codigoEMS;
     private String nombre;
     private String descripcion;
     private String razaString = "";
 
-    public GatoVO(Raza raza, int id, String codigoEMS, String nombre, String descripcion) {
+    public GatoVO(Raza raza, String id, String codigoEMS, String nombre, String descripcion) {
         this.raza = raza;
         this.id = id;
         this.codigoEMS = codigoEMS;
@@ -46,11 +46,11 @@ public class GatoVO {
         this.raza = raza;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
