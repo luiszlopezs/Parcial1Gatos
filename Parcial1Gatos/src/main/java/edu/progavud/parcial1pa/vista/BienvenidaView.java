@@ -30,7 +30,7 @@ public class BienvenidaView extends javax.swing.JFrame {
         lblBienvenidaGestor = new javax.swing.JLabel();
         lblTextoBienvenida = new javax.swing.JLabel();
         buttonIngresar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BienvenidaView");
@@ -83,7 +83,7 @@ public class BienvenidaView extends javax.swing.JFrame {
                 .addGap(80, 80, 80))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagenBienvenida.png"))); // NOI18N
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imagenBienvenida.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,13 +91,13 @@ public class BienvenidaView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,8 +140,8 @@ public class BienvenidaView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonIngresar;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBienvenidaGestor;
+    private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblTextoBienvenida;
     private javax.swing.JPanel panelFondo;
     // End of variables declaration//GEN-END:variables
