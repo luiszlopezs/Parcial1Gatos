@@ -4,15 +4,36 @@
  */
 package edu.progavud.parcial1pa.control;
 
+import edu.progavud.parcial1pa.vista.*;
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author sangr
  */
 public class ControlVentana {
     private ControlPrincipal cPrinc;
+    private BienvenidaView vBienvenida;
+    private ConsultarRazaView vConsultar;
+    private InsertarRazaView vInsertar;
+    private ModificarRazaView vModificar;
+    private GestorGatosView vMenu;
 
-    public ControlVentana(ControlPrincipal cPrinc) {
+    public ControlVentana(ControlPrincipal cPrinc, BienvenidaView vBienvenida, ConsultarRazaView vConsultar, InsertarRazaView vInsertar, ModificarRazaView vModificar, GestorGatosView vMenu) {
         this.cPrinc = cPrinc;
+        this.vBienvenida = vBienvenida;
+        this.vConsultar = vConsultar;
+        this.vInsertar = vInsertar;
+        this.vModificar = vModificar;
+        this.vMenu = vMenu;
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        String comando = e.getActionCommand();
+        
+        switch (comando){
+            case("INICIAR_JUEGO") :
     
 }
