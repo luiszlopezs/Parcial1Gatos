@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -114,7 +115,7 @@ public class GatoDAO {
 
             misGatosConsultados.add(gato);
         }
-        st.close();
+        st.close();     
         ConexionBD.desconectar();
 
         return misGatosConsultados;
@@ -139,5 +140,27 @@ public class GatoDAO {
 
         return gatoVO;
     }
+    
+    
+    public ArrayList<List> listaDeDatosSerializar() throws SQLException {
+        ArrayList<List> datosASerializar = new ArrayList<List>();
+        String consulta = "SELECT codigoEMS, razaString FROM GatosTabla";
 
+        con = ConexionBD.getConexion();
+        st = con.createStatement();
+        rs = st.executeQuery(consulta);
+        while (rs.next()) {
+            List<String> parDeDatos = new ArrayList<>();
+            parDeDatos.add(rs.getString("codigoEMS"));
+            parDeDatos.add(rs.getString("razaString"));
+
+
+            datosASerializar.add(parDeDatos);
+        }
+        st.close();
+        ConexionBD.desconectar();
+
+        return datosASerializar;
+
+    }
 }
