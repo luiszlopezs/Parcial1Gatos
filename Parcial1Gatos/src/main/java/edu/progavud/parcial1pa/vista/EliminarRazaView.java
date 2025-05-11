@@ -28,12 +28,12 @@ public class EliminarRazaView extends javax.swing.JFrame {
 
         panelFondo = new javax.swing.JPanel();
         separatorLinea = new javax.swing.JSeparator();
-        lblEliminarRaza = new javax.swing.JLabel();
+        lblEliminarGato = new javax.swing.JLabel();
         separatorLineaAbajo = new javax.swing.JSeparator();
         separatorLineaAbajo1 = new javax.swing.JSeparator();
         lblBuscarPor = new javax.swing.JLabel();
         lblValor = new javax.swing.JLabel();
-        comboSelecionarBusqueda = new javax.swing.JComboBox<>();
+        comboMirarGatos = new javax.swing.JComboBox<>();
         txtValor = new javax.swing.JTextField();
         buttonBuscar = new javax.swing.JButton();
         lblResultadoEliminarRaza = new javax.swing.JLabel();
@@ -45,17 +45,19 @@ public class EliminarRazaView extends javax.swing.JFrame {
         lblPreguntaEliminar = new javax.swing.JLabel();
         buttonEliminar = new javax.swing.JButton();
         buttonCancelar = new javax.swing.JButton();
+        lblResultadoEliminarNombre = new javax.swing.JLabel();
+        txtResultadoEliminarNombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("EliminarRazaView");
+        setTitle("EliminarGatoView");
 
         panelFondo.setBackground(new java.awt.Color(255, 229, 180));
 
         separatorLinea.setBackground(new java.awt.Color(0, 0, 0));
         separatorLinea.setForeground(new java.awt.Color(0, 0, 0));
 
-        lblEliminarRaza.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
-        lblEliminarRaza.setText("Eliminar Raza De Gato");
+        lblEliminarGato.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
+        lblEliminarGato.setText("Eliminar Gato");
 
         separatorLineaAbajo.setBackground(new java.awt.Color(0, 0, 0));
         separatorLineaAbajo.setForeground(new java.awt.Color(0, 0, 0));
@@ -64,15 +66,16 @@ public class EliminarRazaView extends javax.swing.JFrame {
         separatorLineaAbajo1.setForeground(new java.awt.Color(0, 0, 0));
 
         lblBuscarPor.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblBuscarPor.setText("Buscar Por:");
+        lblBuscarPor.setText("Mirar los gatos actuales:");
         lblBuscarPor.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         lblValor.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblValor.setText("Valor:");
+        lblValor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblValor.setText("ID:");
         lblValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        comboSelecionarBusqueda.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        comboSelecionarBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "Nombre de la raza", "Codigo EMS" }));
+        comboMirarGatos.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        comboMirarGatos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE" }));
 
         txtValor.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
 
@@ -128,42 +131,20 @@ public class EliminarRazaView extends javax.swing.JFrame {
         buttonCancelar.setText("Cancelar");
         buttonCancelar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 0), 2));
 
+        lblResultadoEliminarNombre.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
+        lblResultadoEliminarNombre.setText("Nombre:");
+        lblResultadoEliminarNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+
+        txtResultadoEliminarNombre.setEditable(false);
+        txtResultadoEliminarNombre.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
         panelFondoLayout.setHorizontalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(separatorLinea, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-            .addComponent(separatorLineaAbajo, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-            .addComponent(separatorLineaAbajo1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBuscarPor)
-                    .addComponent(lblValor))
-                .addGap(30, 30, 30)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comboSelecionarBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(txtValor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblResultadoEliminarRaza)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtResultadoEliminarRaza, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblResultadoEliminarCodigo)
-                            .addComponent(lblResultadoEliminarDescripcion))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtResultadoEliminarCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                            .addComponent(txtResultadoEliminarDescripcion))))
-                .addGap(27, 27, 27))
+            .addComponent(separatorLinea)
+            .addComponent(separatorLineaAbajo)
+            .addComponent(separatorLineaAbajo1)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(buttonEliminar)
@@ -171,26 +152,59 @@ public class EliminarRazaView extends javax.swing.JFrame {
                 .addComponent(buttonCancelar)
                 .addGap(45, 45, 45))
             .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblBuscarPor)
+                    .addComponent(lblValor, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(lblEliminarRaza))
+                        .addComponent(txtValor)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboMirarGatos, 0, 264, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
+                        .addGap(184, 184, 184)
+                        .addComponent(lblEliminarGato))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(147, 147, 147)
                         .addComponent(lblPreguntaEliminar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelFondoLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblResultadoEliminarCodigo)
+                            .addComponent(lblResultadoEliminarDescripcion))
+                        .addGap(112, 112, 112)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtResultadoEliminarCodigo)
+                            .addComponent(txtResultadoEliminarDescripcion)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblResultadoEliminarRaza)
+                            .addComponent(lblResultadoEliminarNombre))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtResultadoEliminarNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                            .addComponent(txtResultadoEliminarRaza))))
+                .addContainerGap())
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(lblEliminarRaza)
+                .addComponent(lblEliminarGato)
                 .addGap(18, 18, 18)
                 .addComponent(separatorLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBuscarPor)
-                    .addComponent(comboSelecionarBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboMirarGatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblValor)
@@ -199,6 +213,10 @@ public class EliminarRazaView extends javax.swing.JFrame {
                         .addComponent(buttonBuscar)))
                 .addGap(18, 18, 18)
                 .addComponent(separatorLineaAbajo1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblResultadoEliminarNombre)
+                    .addComponent(txtResultadoEliminarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblResultadoEliminarRaza)
@@ -211,7 +229,7 @@ public class EliminarRazaView extends javax.swing.JFrame {
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblResultadoEliminarDescripcion)
                     .addComponent(txtResultadoEliminarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(separatorLineaAbajo, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPreguntaEliminar)
@@ -283,12 +301,13 @@ public class EliminarRazaView extends javax.swing.JFrame {
     private javax.swing.JButton buttonBuscar;
     private javax.swing.JButton buttonCancelar;
     private javax.swing.JButton buttonEliminar;
-    private javax.swing.JComboBox<String> comboSelecionarBusqueda;
+    private javax.swing.JComboBox<String> comboMirarGatos;
     private javax.swing.JLabel lblBuscarPor;
-    private javax.swing.JLabel lblEliminarRaza;
+    private javax.swing.JLabel lblEliminarGato;
     private javax.swing.JLabel lblPreguntaEliminar;
     private javax.swing.JLabel lblResultadoEliminarCodigo;
     private javax.swing.JLabel lblResultadoEliminarDescripcion;
+    private javax.swing.JLabel lblResultadoEliminarNombre;
     private javax.swing.JLabel lblResultadoEliminarRaza;
     private javax.swing.JLabel lblValor;
     private javax.swing.JPanel panelFondo;
@@ -297,6 +316,7 @@ public class EliminarRazaView extends javax.swing.JFrame {
     private javax.swing.JSeparator separatorLineaAbajo1;
     private javax.swing.JTextField txtResultadoEliminarCodigo;
     private javax.swing.JTextField txtResultadoEliminarDescripcion;
+    private javax.swing.JTextField txtResultadoEliminarNombre;
     private javax.swing.JTextField txtResultadoEliminarRaza;
     private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables

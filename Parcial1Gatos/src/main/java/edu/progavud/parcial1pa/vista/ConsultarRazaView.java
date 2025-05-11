@@ -28,49 +28,42 @@ public class ConsultarRazaView extends javax.swing.JFrame {
 
         panelFondo = new javax.swing.JPanel();
         separatorLinea = new javax.swing.JSeparator();
-        lblConsultarRaza = new javax.swing.JLabel();
+        lblConsultarGato = new javax.swing.JLabel();
         separatorLinea1 = new javax.swing.JSeparator();
-        lblNombreRaza = new javax.swing.JLabel();
+        lblBuscar = new javax.swing.JLabel();
         lblCodigoEMS = new javax.swing.JLabel();
-        txtNombreRaza = new javax.swing.JTextField();
-        txtCodigoEMS = new javax.swing.JTextField();
+        txtIngresar = new javax.swing.JTextField();
         buttonLimpiar = new javax.swing.JButton();
         buttonVolver = new javax.swing.JButton();
         buttonConsultar = new javax.swing.JButton();
         lblResultados = new javax.swing.JLabel();
         panelResultados = new javax.swing.JPanel();
-        lblResultadoRaza = new javax.swing.JLabel();
-        lblResultadoCodigo = new javax.swing.JLabel();
-        lblDescripcion = new javax.swing.JLabel();
-        txtResultadoRaza = new javax.swing.JTextField();
-        txtResultadoCodigo = new javax.swing.JTextField();
-        txtResultadoDescripcion = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBuscar = new javax.swing.JComboBox<>();
+        separatorLinea2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ConsultarRazaView");
+        setTitle("ConsultarGatoView");
 
         panelFondo.setBackground(new java.awt.Color(255, 229, 180));
 
         separatorLinea.setBackground(new java.awt.Color(0, 0, 0));
         separatorLinea.setForeground(new java.awt.Color(0, 0, 0));
 
-        lblConsultarRaza.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
-        lblConsultarRaza.setText("Consultar Raza De Gato");
+        lblConsultarGato.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
+        lblConsultarGato.setText("Consultar Gato");
 
         separatorLinea1.setBackground(new java.awt.Color(0, 0, 0));
         separatorLinea1.setForeground(new java.awt.Color(0, 0, 0));
 
-        lblNombreRaza.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblNombreRaza.setText("Nombre de la raza:");
-        lblNombreRaza.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 64, 64), 2));
+        lblBuscar.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
+        lblBuscar.setText("Buscar por ID, EMS o buscar por todo:");
+        lblBuscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 64, 64), 2));
 
-        lblCodigoEMS.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblCodigoEMS.setText("Codigo EMS");
-        lblCodigoEMS.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 64, 64), 2));
+        lblCodigoEMS.setFont(new java.awt.Font("Curlz MT", 1, 16)); // NOI18N
+        lblCodigoEMS.setText("Si selecciono \"Buscar por todo\", deje el espacio en blanco");
 
-        txtNombreRaza.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-
-        txtCodigoEMS.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        txtIngresar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
 
         buttonLimpiar.setBackground(new java.awt.Color(255, 255, 204));
         buttonLimpiar.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
@@ -107,68 +100,37 @@ public class ConsultarRazaView extends javax.swing.JFrame {
         });
 
         lblResultados.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblResultados.setText("Resultados:");
+        lblResultados.setText("Resultados de la busqueda:");
         lblResultados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         panelResultados.setBackground(new java.awt.Color(255, 250, 230));
         panelResultados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 120, 40), 2));
 
-        lblResultadoRaza.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblResultadoRaza.setText("Raza:");
-
-        lblResultadoCodigo.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblResultadoCodigo.setText("Codigo EMS:");
-
-        lblDescripcion.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblDescripcion.setText("Descripcion:");
-
-        txtResultadoRaza.setEditable(false);
-        txtResultadoRaza.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-
-        txtResultadoCodigo.setEditable(false);
-        txtResultadoCodigo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-
-        txtResultadoDescripcion.setEditable(false);
-        txtResultadoDescripcion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", " " }));
 
         javax.swing.GroupLayout panelResultadosLayout = new javax.swing.GroupLayout(panelResultados);
         panelResultados.setLayout(panelResultadosLayout);
         panelResultadosLayout.setHorizontalGroup(
             panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadosLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelResultadosLayout.createSequentialGroup()
-                        .addComponent(lblResultadoRaza)
-                        .addGap(57, 57, 57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblResultadoCodigo)
-                        .addComponent(lblDescripcion)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtResultadoRaza, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtResultadoCodigo)
-                        .addComponent(txtResultadoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(30, 30, 30))
+                .addContainerGap()
+                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         panelResultadosLayout.setVerticalGroup(
             panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblResultadoRaza)
-                    .addComponent(txtResultadoRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblResultadoCodigo)
-                    .addComponent(txtResultadoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelResultadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDescripcion)
-                    .addComponent(txtResultadoDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
+
+        comboBuscar.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        comboBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "ID", "EMS", "Buscar por todo", " " }));
+
+        separatorLinea2.setBackground(new java.awt.Color(0, 0, 0));
+        separatorLinea2.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -176,69 +138,71 @@ public class ConsultarRazaView extends javax.swing.JFrame {
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(separatorLinea)
             .addComponent(separatorLinea1)
+            .addComponent(separatorLinea2)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBuscar)
+                        .addGap(36, 36, 36)
+                        .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(lblConsultarRaza))
+                        .addContainerGap()
+                        .addComponent(panelResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCodigoEMS)
-                            .addComponent(lblNombreRaza))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNombreRaza, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(txtCodigoEMS))))
-                .addGap(28, 28, 28))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(lblResultados))
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addComponent(lblConsultarGato)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(buttonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lblResultados)
+                .addContainerGap()
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCodigoEMS))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelFondoLayout.createSequentialGroup()
-                    .addGap(53, 53, 53)
-                    .addComponent(buttonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(18, 18, 18)
-                    .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(53, Short.MAX_VALUE)))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addComponent(lblConsultarRaza)
+                .addComponent(lblConsultarGato)
                 .addGap(18, 18, 18)
                 .addComponent(separatorLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreRaza)
-                    .addComponent(txtNombreRaza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblBuscar)
+                    .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(txtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(lblCodigoEMS)
+                .addGap(16, 16, 16)
+                .addComponent(separatorLinea2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoEMS)
-                    .addComponent(txtCodigoEMS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(109, 109, 109)
+                    .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(separatorLinea1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblResultados)
                 .addGap(12, 12, 12)
                 .addComponent(panelResultados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(panelFondoLayout.createSequentialGroup()
-                    .addGap(229, 229, 229)
-                    .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buttonLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(buttonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(229, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,21 +270,17 @@ public class ConsultarRazaView extends javax.swing.JFrame {
     private javax.swing.JButton buttonConsultar;
     private javax.swing.JButton buttonLimpiar;
     private javax.swing.JButton buttonVolver;
+    private javax.swing.JComboBox<String> comboBuscar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel lblBuscar;
     private javax.swing.JLabel lblCodigoEMS;
-    private javax.swing.JLabel lblConsultarRaza;
-    private javax.swing.JLabel lblDescripcion;
-    private javax.swing.JLabel lblNombreRaza;
-    private javax.swing.JLabel lblResultadoCodigo;
-    private javax.swing.JLabel lblResultadoRaza;
+    private javax.swing.JLabel lblConsultarGato;
     private javax.swing.JLabel lblResultados;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JPanel panelResultados;
     private javax.swing.JSeparator separatorLinea;
     private javax.swing.JSeparator separatorLinea1;
-    private javax.swing.JTextField txtCodigoEMS;
-    private javax.swing.JTextField txtNombreRaza;
-    private javax.swing.JTextField txtResultadoCodigo;
-    private javax.swing.JTextField txtResultadoDescripcion;
-    private javax.swing.JTextField txtResultadoRaza;
+    private javax.swing.JSeparator separatorLinea2;
+    private javax.swing.JTextField txtIngresar;
     // End of variables declaration//GEN-END:variables
 }

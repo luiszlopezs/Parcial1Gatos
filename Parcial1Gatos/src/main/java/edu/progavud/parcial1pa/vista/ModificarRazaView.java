@@ -28,48 +28,47 @@ public class ModificarRazaView extends javax.swing.JFrame {
 
         panelFondo = new javax.swing.JPanel();
         separatorLinea = new javax.swing.JSeparator();
-        lblModificarRaza = new javax.swing.JLabel();
+        lblModificarGato = new javax.swing.JLabel();
         separatorLinea1 = new javax.swing.JSeparator();
-        lblBuscarNombreCodigo = new javax.swing.JLabel();
+        lblMirarGato = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         buttonBuscar = new javax.swing.JButton();
         buttonRestablecer = new javax.swing.JButton();
         buttonVolver = new javax.swing.JButton();
         buttonGuardar = new javax.swing.JButton();
         lblModificarNombre = new javax.swing.JLabel();
-        lblModificarCodigo = new javax.swing.JLabel();
         lblModificarPatron = new javax.swing.JLabel();
         lblModificarColor = new javax.swing.JLabel();
         lblModificarColorOjos = new javax.swing.JLabel();
         lblModificarTipoCola = new javax.swing.JLabel();
-        lblModificarTipoOrejas = new javax.swing.JLabel();
+        lblModificarCantidadBlanco = new javax.swing.JLabel();
         lblModificarDescripcion = new javax.swing.JLabel();
         txtModificarNombre = new javax.swing.JTextField();
-        txtModificarCodigo = new javax.swing.JTextField();
         txtModificarDescripcion = new javax.swing.JTextField();
         comboModificarColor = new javax.swing.JComboBox<>();
         comboModificarPatron = new javax.swing.JComboBox<>();
+        comboModificarColorOjos = new javax.swing.JComboBox<>();
         comboModificarTipoCola = new javax.swing.JComboBox<>();
-        comboModificarTipoOrejas = new javax.swing.JComboBox<>();
-        comboModificarDescripcion = new javax.swing.JComboBox<>();
+        comboModificarCantidadBlanco = new javax.swing.JComboBox<>();
         jComboBox1 = new javax.swing.JComboBox<>();
+        lblID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ModificarRazaView");
+        setTitle("ModificarGatoView");
 
         panelFondo.setBackground(new java.awt.Color(255, 229, 180));
 
         separatorLinea.setBackground(new java.awt.Color(0, 0, 0));
         separatorLinea.setForeground(new java.awt.Color(0, 0, 0));
 
-        lblModificarRaza.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
-        lblModificarRaza.setText("Modificar Raza De Gato");
+        lblModificarGato.setFont(new java.awt.Font("Curlz MT", 1, 24)); // NOI18N
+        lblModificarGato.setText("Modificar Gato");
 
         separatorLinea1.setBackground(new java.awt.Color(0, 0, 0));
         separatorLinea1.setForeground(new java.awt.Color(0, 0, 0));
 
-        lblBuscarNombreCodigo.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblBuscarNombreCodigo.setText("Buscar por Nombre o Codigo EMS:");
+        lblMirarGato.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
+        lblMirarGato.setText("Mirar los gatos actuales:");
 
         txtBuscar.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
         txtBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,12 +118,8 @@ public class ModificarRazaView extends javax.swing.JFrame {
         });
 
         lblModificarNombre.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblModificarNombre.setText("Nombre de la raza:");
+        lblModificarNombre.setText("Nombre:");
         lblModificarNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-
-        lblModificarCodigo.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblModificarCodigo.setText("Codigo base EMS:");
-        lblModificarCodigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblModificarPatron.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
         lblModificarPatron.setText("Patron:");
@@ -142,42 +137,43 @@ public class ModificarRazaView extends javax.swing.JFrame {
         lblModificarTipoCola.setText("Tipo de cola:");
         lblModificarTipoCola.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        lblModificarTipoOrejas.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
-        lblModificarTipoOrejas.setText("Tipo de orejas:");
-        lblModificarTipoOrejas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        lblModificarCantidadBlanco.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
+        lblModificarCantidadBlanco.setText("Cantidad de blanco en pelaje:");
+        lblModificarCantidadBlanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         lblModificarDescripcion.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
         lblModificarDescripcion.setText("Descripcion:");
         lblModificarDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        txtModificarNombre.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        txtModificarNombre.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
         txtModificarNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtModificarNombreActionPerformed(evt);
             }
         });
 
-        txtModificarCodigo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        txtModificarDescripcion.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
 
-        txtModificarDescripcion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-
-        comboModificarColor.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        comboModificarColor.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
         comboModificarColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "n - Negro", "a - Azul", "b - Chocolate", "w - Blanco", "d - Rojo", "e - Crema" }));
 
-        comboModificarPatron.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
+        comboModificarPatron.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
         comboModificarPatron.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "01 - Van", "03 - Bicolor", "09 - Con Blanco (Indefinido)", "23 - Tabby Caballa", "24 - Tabby Moteado", "25 - Ticked Tabby", " " }));
 
-        comboModificarTipoCola.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        comboModificarTipoCola.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "61 - Azul", "62 - Naranja/Cobre", "63 - Odd-eyed/Heterocromia", "64 - Verde", "65 - Amarillo/Dorado", "66 - Avellana/Ambar Claro" }));
+        comboModificarColorOjos.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        comboModificarColorOjos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "61 - Azul", "62 - Naranja/Cobre", "63 - Odd-eyed/Heterocromia", "64 - Verde", "65 - Amarillo/Dorado", "66 - Avellana/Ambar Claro" }));
 
-        comboModificarTipoOrejas.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        comboModificarTipoOrejas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "51 - Sin Cola", "52 - Enroscada", "53 - Corta", "54 - Larga", "55 - Quebrada", "56 - Emplumada" }));
+        comboModificarTipoCola.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        comboModificarTipoCola.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "51 - Sin Cola", "52 - Enroscada", "53 - Corta", "54 - Larga", "55 - Quebrada", "56 - Emplumada" }));
 
-        comboModificarDescripcion.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
-        comboModificarDescripcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "71 - Rectas", "72 - Rizadas", "73 - Plegadas", "74 - Grandes", "75 - Pequeñas", "76 - En Punta" }));
+        comboModificarCantidadBlanco.setFont(new java.awt.Font("Serif", 1, 17)); // NOI18N
+        comboModificarCantidadBlanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "71 - Rectas", "72 - Rizadas", "73 - Plegadas", "74 - Grandes", "75 - Pequeñas", "76 - En Punta" }));
 
         jComboBox1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONE", "Nombre de la raza", "Codigo EMS" }));
+
+        lblID.setFont(new java.awt.Font("Curlz MT", 1, 18)); // NOI18N
+        lblID.setText("ID de gato a modificar:");
 
         javax.swing.GroupLayout panelFondoLayout = new javax.swing.GroupLayout(panelFondo);
         panelFondo.setLayout(panelFondoLayout);
@@ -186,121 +182,124 @@ public class ModificarRazaView extends javax.swing.JFrame {
             .addComponent(separatorLinea)
             .addComponent(separatorLinea1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblModificarGato)
+                .addGap(208, 208, 208))
+            .addGroup(panelFondoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblBuscarNombreCodigo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModificarCantidadBlanco)
+                                    .addComponent(lblModificarDescripcion)
+                                    .addComponent(lblModificarColorOjos)
+                                    .addComponent(lblModificarTipoCola)
+                                    .addComponent(lblModificarNombre))
+                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(panelFondoLayout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addComponent(txtModificarNombre))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtModificarDescripcion, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(comboModificarCantidadBlanco, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboModificarTipoCola, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(comboModificarColorOjos, 0, 311, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
+                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModificarColor)
+                                    .addComponent(lblModificarPatron))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboModificarPatron, 0, 311, Short.MAX_VALUE)
+                                    .addComponent(comboModificarColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap())
+                    .addGroup(panelFondoLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(buttonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGap(108, 108, 108)
                         .addComponent(buttonRestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFondoLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lblModificarNombre)
-                        .addComponent(lblModificarCodigo)
-                        .addComponent(lblModificarDescripcion)
-                        .addComponent(lblModificarColor)
-                        .addComponent(lblModificarPatron)
-                        .addComponent(lblModificarColorOjos)
-                        .addComponent(lblModificarTipoCola))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblModificarTipoOrejas)
-                        .addGap(32, 32, 32)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboModificarDescripcion, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboModificarTipoOrejas, 0, 0, Short.MAX_VALUE)
-                    .addComponent(comboModificarTipoCola, 0, 0, Short.MAX_VALUE)
-                    .addComponent(comboModificarPatron, 0, 0, Short.MAX_VALUE)
-                    .addComponent(txtModificarNombre)
-                    .addComponent(txtModificarCodigo)
-                    .addComponent(comboModificarColor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
-            .addGroup(panelFondoLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(lblModificarRaza)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(34, 34, 34))
+                    .addGroup(panelFondoLayout.createSequentialGroup()
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMirarGato)
+                            .addComponent(lblID))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelFondoLayout.createSequentialGroup()
+                                .addComponent(txtBuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         panelFondoLayout.setVerticalGroup(
             panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelFondoLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lblModificarRaza)
+                .addComponent(lblModificarGato)
                 .addGap(18, 18, 18)
                 .addComponent(separatorLinea, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBuscarNombreCodigo)
+                    .addComponent(lblMirarGato)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonBuscar)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblID))
                 .addGap(18, 18, 18)
                 .addComponent(separatorLinea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModificarNombre)
+                    .addComponent(txtModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModificarColor)
+                    .addComponent(comboModificarColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(lblModificarNombre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarColor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarPatron)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarColorOjos)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarTipoCola)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblModificarTipoOrejas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModificarPatron)
+                            .addComponent(comboModificarPatron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModificarColorOjos)
+                            .addComponent(comboModificarColorOjos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModificarTipoCola)
+                            .addComponent(comboModificarTipoCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModificarCantidadBlanco)
+                            .addComponent(comboModificarCantidadBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
                         .addComponent(lblModificarDescripcion))
                     .addGroup(panelFondoLayout.createSequentialGroup()
-                        .addComponent(txtModificarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtModificarCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboModificarColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboModificarPatron, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboModificarTipoCola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboModificarTipoOrejas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonRestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(181, 181, 181)
+                        .addComponent(txtModificarDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buttonRestablecer, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,27 +369,26 @@ public class ModificarRazaView extends javax.swing.JFrame {
     private javax.swing.JButton buttonGuardar;
     private javax.swing.JButton buttonRestablecer;
     private javax.swing.JButton buttonVolver;
+    private javax.swing.JComboBox<String> comboModificarCantidadBlanco;
     private javax.swing.JComboBox<String> comboModificarColor;
-    private javax.swing.JComboBox<String> comboModificarDescripcion;
+    private javax.swing.JComboBox<String> comboModificarColorOjos;
     private javax.swing.JComboBox<String> comboModificarPatron;
     private javax.swing.JComboBox<String> comboModificarTipoCola;
-    private javax.swing.JComboBox<String> comboModificarTipoOrejas;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel lblBuscarNombreCodigo;
-    private javax.swing.JLabel lblModificarCodigo;
+    private javax.swing.JLabel lblID;
+    private javax.swing.JLabel lblMirarGato;
+    private javax.swing.JLabel lblModificarCantidadBlanco;
     private javax.swing.JLabel lblModificarColor;
     private javax.swing.JLabel lblModificarColorOjos;
     private javax.swing.JLabel lblModificarDescripcion;
+    private javax.swing.JLabel lblModificarGato;
     private javax.swing.JLabel lblModificarNombre;
     private javax.swing.JLabel lblModificarPatron;
-    private javax.swing.JLabel lblModificarRaza;
     private javax.swing.JLabel lblModificarTipoCola;
-    private javax.swing.JLabel lblModificarTipoOrejas;
     private javax.swing.JPanel panelFondo;
     private javax.swing.JSeparator separatorLinea;
     private javax.swing.JSeparator separatorLinea1;
     private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtModificarCodigo;
     private javax.swing.JTextField txtModificarDescripcion;
     private javax.swing.JTextField txtModificarNombre;
     // End of variables declaration//GEN-END:variables
